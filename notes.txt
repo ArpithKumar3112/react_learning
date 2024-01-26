@@ -1,0 +1,81 @@
+//createElement("Name of the Tag","Attributes ","Chidren=>Normal React  Element or Array of React Elements")
+//React Element is an object,when it is rendered onto the DOM it becomes an HTML Element.
+//JSX code is transpiled before it reaches JS Engine=>Transpiling is done(Parcel sends this code to Babel to transpile)
+//JSX=>Babel transpiles it to React. createElement=>ReactElement-JS Object=>HTMLElemnt(render)
+//Components in React=>
+//Class based Component-OLD
+//Functional Component-NEW = Normal Javascript function
+//Functional Component==>returns Functional Element(JSX Element)
+//Component Composition=>One component inside another
+//JSX Automatically sanitizes the code
+//We can write any Javascript code inside {} in JSX so we can write a React compnent as
+//<Title/> or <Title></Title> or {Title()} 
+
+
+#React Hooks
+-Normal JS Functions()
+-Two Important React Hooks
+--UseState-Super Powerful React Variables
+--UseEffect-
+--Every time state variable changes ,React rerenders the component.
+--It keeps the UI Layer and Data Layer in sync`
+
+React Fiber->Makes it fast(Differential Algorithm)(https://github.com/acdlite/react-fiber-architecture)
+It does effecient DOM Manipulation
+It finds the difference between Virtual DOMs and then manipulates the Main DOM(HTML)
+
+
+Hooks:
+-UseState=Used to create local state variables inside your functional component(Never create useSate hook outside Function component)
+--Good practice to create it at the beginning of a function
+--Never use useState inside a conditional block(Will create inconsistency)
+--Never create state variables inside a for loop or inside inner functions
+-useEffect(()=>{},[])(Callback Function ,Dependency Array)
+--if no dependency array==>useEffect is called after every render
+--if dependency array is empty([])==>then useEffect is called after initial render(just once)
+--if we mentiona state variable in the dependency array==>useEffect is called avery time the state variable changes
+--Never update state variables directly
+Routing
+--Client Side Routing--Using react-routing-dom we use client side routing,where a netwrok call is not made to load a new component.(Ep.07 1:05:00 )
+--Server Side Routing--MAke a network call and server sends new page
+
+Dynamic Routing
+
+Use {link} from reat-router-dom instead of <href a="">(anchor tag),this does not refresh the page and only renders that part of the page.
+
+
+Class Based Components:-
+Lifecycle
+--  =>Parent Constructor
+    =>Parent Render
+    =>Child Constructor
+    =>Child Render
+    =>Child componentDidMount
+    =>Parent componentDidMount
+
+
+If there are two Children (The render phase of the children are batched together and then the componentDidMount phase3 starts because the render phase usually completes fast(as it is only Javascript work) then the commit phase starts.Check React lifecycle methods diagram starts)Ep.08- 1:30:00
+--  =>Parent Constructor
+    =>Parent Render
+    =>Child1 Constructor
+    =>CHild1 Render
+    =>Child2 Constructor
+    =>CHild2 Render
+    =>Child1 componentDidMount
+    =>Child2 componentDidMount
+    =>Parent componentDidMount
+
+
+componentDidMOunt(API calls are made here.This is similar(Not the same) to useEffect hook in Functional Components)
+
+Optimizing Code:-
+-Single Responsibility principle-Custom Hooks
+-Chunking,CodeSplitting,Lazy Loading,Dynamic Bundling,Dynamic Importing--We split our code into smaller chunks
+--import React ,{lazy,Suspense} from "react"
+--const Grocery=lazy(()=>import("./components/Grocery"))
+--{
+                path:"/Grocery",
+                element:<Suspense fallback={<Shimmer/>}><Grocery/></Suspense>               
+            }
+
+--This creates two .js files when bundling and Grocery is not loaded initially
