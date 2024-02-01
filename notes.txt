@@ -79,3 +79,54 @@ Optimizing Code:-
             }
 
 --This creates two .js files when bundling and Grocery is not loaded initially
+
+
+Adding style to our applications:-
+-SASS
+-SCSS
+-Styled Components
+-Material UI,Chakra UI,Antdesign
+-Tailwind CSS-Only required CSS is shipped
+
+Higher Order Component
+-FUnction that Takes a component enhances it and returns a new component
+-See restaurantCard for Higher Order Component and see how props has been used
+
+
+--Accordions
+
+
+UI Layer-Data Layer
+Controlled Components and Uncontrolled Components:-
+-Parent Component has some or all control over the child component(Check Restaurant Category and Restaurant Menu ,showItems is passed and controls the way RestaurantMenu is shown )
+-Lifting the state up in React(Control moved to Parent component)
+
+Props Drilling
+--Data has to be passed from parent down to child one after the other which is bad.This can be evaded using React CONTEXT.
+
+React CONTEXT
+--We can keep context Wherever we want
+--We can wrap the application only where required
+--Tying UserCOntext with State Variable
+--Check EP:11 2:40:00
+--<UserContext.Provider value={{loggedInUser:userName,setUserName}}></UserContext.Provider>
+
+Redux Versus React Context-(Redux is an external package whereas )
+
+
+#Redux Toolkit
+    -Install @reduxjs/toolkit and react-redux
+    -Build our setListofRestaurants
+    -Connect our store to the app
+    -create slice(cartSlice)
+    -Dispatch Action
+    -Selector
+
+
+Testing
+--Install React Testing LIbrary
+-Installed Jest
+-Installed Babel
+-configured Babel-(Parcel already uses Babel,so should make changes so that configuration issue doesn't happen)
+--Configure Parcel Config file(.parcelrc) to disable default babel transpilation(Cause parcel transpilation is better)(https://parceljs.org/languages/javascript/#babel)=>Read the Babel section and then Usage with other tools
+--Jest Configuration(npx jext --init )Choose jsdom,babel
